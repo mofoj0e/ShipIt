@@ -37,4 +37,4 @@ https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgc
 
 ## Some notes
 
-I am using a library called Redux Toolkit which allows me to write reducers in an mutable way. It also removes a lot of boiler plate code.
+I am using a library called Redux Toolkit which allows me to write reducers in a mutable way. It also removes a lot of boiler plate code.

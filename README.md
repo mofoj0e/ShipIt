@@ -31,7 +31,7 @@ https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgc
 
 ## Running Tests
 
-Navigate to ShipIt project directory:
+####Navigate to ShipIt project directory:
     > cd server\Tests\
     > dotnet test -v n
 

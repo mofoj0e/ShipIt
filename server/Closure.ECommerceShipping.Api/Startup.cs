@@ -1,3 +1,4 @@
+using System;
 using Closure.ECommerceShipping.Api.Application.Products;
 using Closure.ECommerceShipping.Api.Application.Services;
 using Closure.ECommerceShipping.Api.Configurations;
@@ -37,6 +38,19 @@ namespace Closure.ECommerceShipping.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Closure.ECommerceShipping.Api", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AllowedCorsOrigins",
+                    builder =>
+                    {
+                        builder
+                            .SetIsOriginAllowed(_=>true)
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +63,7 @@ namespace Closure.ECommerceShipping.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Closure.ECommerceShipping.Api v1"));
             }
 
+            app.UseCors("AllowedCorsOrigins");
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
